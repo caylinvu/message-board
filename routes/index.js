@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const { DateTime } = require('luxon');
 
 const messages = [];
 
@@ -14,7 +13,7 @@ router.get('/new', function(req, res, next) {
 });
 
 router.post('/new', function(req, res, next) {
-  messages.push({text: req.body.message, user: req.body.name, added: DateTime.local().toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY)});
+  messages.push({text: req.body.message, user: req.body.name, added: new Date()});
   res.redirect('/');
 });
 
