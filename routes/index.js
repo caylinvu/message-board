@@ -5,7 +5,7 @@ const asyncHandler = require('express-async-handler');
 
 /* GET home page. */
 router.get('/', asyncHandler(async (req, res, next) => {
-  const allMessages = await Message.find().exec();
+  const allMessages = await Message.find().sort({added: 1}).exec();
   res.render('index', { title: 'Mini Messageboard', messages: allMessages });
 }));
 
