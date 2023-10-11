@@ -3,8 +3,10 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  a(href='/new') Add new message
-  ul
-    each message in messages
-      li= message.user + ': ' + message.text
-      p= message.added
+  a(href='/new')
+    button.new-btn Add new message
+  each message, index in messages
+    p #[strong #{message.user}]: #{message.text}
+    p #[em #{message.added}]
+    if index < messages.length - 1
+      hr

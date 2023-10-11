@@ -1,12 +1,15 @@
 extends layout
 
 block content
-  h1 New Message
+  div.heading
+    h1 New Message
+    a.return(href='/')
+      button.return-btn Return to Messageboard
   form(method='POST', action='/new')
     div
       label(for='name') Name:
-      input(type='text', id='name', name='name')
+      input(type='text', id='name', name='name' required)
     div
       label(for='message') Message:
-      textarea(id='message', name='message')
-    button(type='submit') Submit
+      textarea(id='message', name='message' required)
+    button.submit-btn(type='submit') Submit

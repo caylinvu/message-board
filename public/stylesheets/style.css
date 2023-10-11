@@ -6,3 +6,40 @@ body {
 a {
   color: #00B7FF;
 }
+
+button {
+  background-color: palevioletred;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 7px 12px;
+  font-size: 15px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.new-btn {
+  margin-bottom: 10px;
+}
+
+.submit-btn {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+
+}
+
+form > div:first-child {
+  padding-bottom: 10px;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
