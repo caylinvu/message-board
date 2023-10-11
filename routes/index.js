@@ -3,12 +3,11 @@ const router = express.Router();
 const Message = require('../models/message');
 const asyncHandler = require('express-async-handler');
 
-const messages = [];
-
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Mini Messageboard', messages: messages });
-});
+router.get('/', asyncHandler(async (req, res, next) => {
+  const allMessages = await Message.find().exec();
+  res.render('index', { title: 'Mini Messageboard', messages: allMessages });
+}));
 
 router.get('/new', function(req, res, next) {
   res.render('form');
@@ -22,9 +21,6 @@ router.post('/new', asyncHandler(async (req, res, next) => {
   });
 
   await message.save();
-
-  // messages.push({text: req.body.message, user: req.body.name, added: new Date()});
-
   res.redirect('/');
 }));
 
