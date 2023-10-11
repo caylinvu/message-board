@@ -2,18 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { DateTime } = require('luxon');
 
-const messages = [
-  {
-    text: 'Hi there!',
-    user: 'Amando',
-    added: DateTime.now().toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY),
-  },
-  {
-    text: 'Hello World!',
-    user: 'Charles',
-    added: DateTime.now().toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY),
-  }
-];
+const messages = [];
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
